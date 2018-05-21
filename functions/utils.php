@@ -42,3 +42,21 @@ function numbers($nb)
 {
     return number_format( (int)$nb,0,',','.' );
 }
+
+
+function reIsMoon($data)
+{
+    $retour = false;
+    //par defaut on fixe une planete : du coup pas besoin de gerer la planete
+    //$tabIsPlanete = array("M","C","D","CES","CEF","SAT");
+    $tabIsMoon = array("BaLu","Pha","PoSa");
+   foreach ($tabIsMoon as $elemPlanet)
+   {
+       if ((int)$data[$elemPlanet] > 0)
+       {
+           $retour = true;
+       }
+   }
+    return $retour;
+
+}

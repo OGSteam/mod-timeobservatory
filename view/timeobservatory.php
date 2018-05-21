@@ -51,7 +51,11 @@ $nb = 1;
                     <?php echo $row["coordinates"]; ?>
                 </td>
                 <td>
-                    -
+                    <?php if(reIsMoon($row)):?>
+                        M
+                    <?php else : ?>
+                        P
+                    <?php endif ; ?>
                 </td>
                 <td>
                     <?php if ($row["activite"] == "0"): ?>
@@ -90,5 +94,3 @@ $nb = 1;
 
 
     </table>
-
-<?php
