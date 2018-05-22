@@ -2,7 +2,17 @@
 global $data;
 $nb = 1;
 ?>
-    <table class="timeobservatory">
+<div class="header">
+    <h2>Time Observatory </h2>
+
+</div>
+<div>
+
+
+
+</div>
+<div>
+    <table class="tableTimeobservatory">
         <theader>
             <tr>
                 <th>
@@ -47,7 +57,7 @@ $nb = 1;
                     <?php echo $nb; ?>
                     <?php $nb++; ?>
                 </th>
-                <td>
+                <td class="coord">
                     <?php echo $row["coordinates"]; ?>
                 </td>
                 <td>
@@ -57,9 +67,9 @@ $nb = 1;
                         P
                     <?php endif ; ?>
                 </td>
-                <td>
+                <td class="acti">
                     <?php if ($row["activite"] == "0"): ?>
-                        -
+
                     <?php else : ?>
                         <?php echo $row["activite"]; ?>
                     <?php endif; ?>
@@ -69,22 +79,22 @@ $nb = 1;
                 <td class="syncTimestamp" data="<?php echo $sincetime; ?>">
 
                 </td>
-                <td>
+                <td class="player">
                     <?php echo $row["player"]; ?>
                 </td>
-                <td>
+                <td class="ally">
                     <?php echo $row["ally"]; ?>
                 </td>
                 <td>
                     <?php echo $row["status"]; ?>
                 </td>
-                <td>
+                <td class="pillage">
                     <?php echo getPillage($row); ?>
                 </td>
-                <td>
+                <td class="flotte">
                     <?php echo getFlotte($row); ?>
                 </td>
-                <td>
+                <td class="def">
                     <?php echo getDef($row); ?>
                 </td>
 
@@ -94,3 +104,8 @@ $nb = 1;
 
 
     </table>
+</div>
+
+
+
+<!--<p>Même si ton adversaire te semble une souris, surveille-le comme s'il était un lion</p>-->
