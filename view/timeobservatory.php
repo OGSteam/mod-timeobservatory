@@ -5,13 +5,99 @@ $nb = 1;
 <div class="header">
     <h2>Time Observatory </h2>
 
-</div>
-<div>
-
-
 
 </div>
+<div class="header">
+<h3>Formulaire de recherche</h3>
+    <p style="color: red">
+        <strong>ATTENTION, Mod en developpement, version préliminaire! </strong><BR />
+        les recherches par joueur /alliance et filtre "mes re uniquement " Non implémentées
+
+    </p>
+<form method="post" action="#">
+    <table>
+        <tr>
+            <td class="c" colspan="2">Galaxie</td>
+            <td class="c" colspan="2">System</td>
+            <td class="c" colspan="3">Recherche</td>
+            <td class="c" colspan="2">Filtre</td>
+            <td class="c" colspan="2"></td>
+
+        </tr>
+        <tr>
+            <td class="c" >
+                Min
+            </td>
+            <th >
+                <input type="text" maxlength="1" size="3" name="gmin" value="<?php echo $data["form"]["gmin"];?>" />
+            </th>
+            <td class="c" >
+                Min
+            </td>
+            <th>
+                <input type="text"  maxlength="3" size="3" name="smin" value="<?php echo $data["form"]["smin"];?>"/>
+            </th>
+            <td class="c" >
+                Joueur
+            </td>
+            <th >
+                <input type="checkbox"  name="isplayername">
+            </th>
+
+            <th>
+                <input type="text"   size="30" name="playername" />
+            </th>
+            <td class="c" >
+                Age RE (En jour)
+            </td>
+            <th >
+                <input type="input"  size="3"  name="dayre" value="<?php echo $data["form"]["dayre"];?>"  />
+            </th>
+            <td class="c" >
+                Mes RE uniquement!
+            </td>
+            <th >
+                <input type="checkbox"  name="isplayerre">
+            </th>
+        </tr>
+        <tr>
+            <td class="c" >
+                Max
+            </td>
+            <th >
+                <input type="text"  maxlength="1" size="3" name="gmax" value="<?php echo $data["form"]["gmax"];?>"/>
+            </th>
+            <td class="c" >
+                Max
+            </td>
+            <th>
+                <input type="text" maxlength="3" size="3" name="smax" value="<?php echo $data["form"]["smax"];?>"/>
+            </th>
+
+            <td class="c" >
+                Alliance
+            </td>
+            <th >
+                <input type="checkbox"  name="isallyname">
+            </th>
+            <th>
+                <input type="text"   size="30" name="allyname" />
+            </th>
+            <td class="c" >
+                Limite Réponse
+            </td>
+            <th >
+                <input type="text" size="3" name="limite" value="<?php echo $data["form"]["limite"];?>" />
+            </th>
+            <th colspan="2">
+                <input type="submit" value="Envoyer" />
+            </th>
+        </tr>
+   </table>
+</div>
+
 <div>
+    <h3>Résultat</h3>
     <table class="tableTimeobservatory">
         <theader>
             <tr>
@@ -51,7 +137,7 @@ $nb = 1;
             </tr>
         </theader>
         <tbody>
-        <?php foreach ($data as $row): ?>
+        <?php foreach ($data["re"] as $row): ?>
             <tr>
                 <th>
                     <?php echo $nb; ?>

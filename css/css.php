@@ -52,10 +52,10 @@ if (!defined('IN_SPYOGAME') )
        color: white;
    }
    table .tableTimeobservatory td.def {
-       color:  #cc0000;
+       color:  #ff3333;
    }
    table .tableTimeobservatory td.flotte {
-       color:  #cc0000;
+       color:  #ff3333;
    }
    table .tableTimeobservatory td.pillage {
        color: #00ff00;

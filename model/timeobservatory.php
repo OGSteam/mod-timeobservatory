@@ -24,3 +24,39 @@ function getAllRE()
 
 }
 
+function getREbyFilter($form)
+{
+    //$form["gmax"]= (isset($pub_gmax)) ? (int)$pub_gmax : 9;
+    //$form["gmin"]= (isset($pub_gmin)) ? (int)$pub_gmin :1;
+    //$form["smax"]= (isset($pub_smax)) ? (int)$pub_smax :499;
+    //$form["smin"]= (isset($pub_smin)) ? (int)$pub_smin :1;
+    //$form["dayre"]= (isset($pub_dayre)) ? (int)$pub_dayre :999;
+    //$form["limite"]
+
+
+    global $db;
+    $requete = "select * from " . TABLE_PARSEDSPY . "  ";
+    $requete .= "LEFT JOIN " . TABLE_UNIVERSE. " ON coordinates =  concat(galaxy, ':', system, ':', row)   ";
+    $requete .= "WHERE ";
+    //coord
+    $requete .= "`galaxy` >= ".$form["gmin"]." ";
+    $requete .= " AND `galaxy` <= ".$form["gmax"]." ";
+    $requete .= " AND `system` >= ".$form["smin"]." ";
+    $requete .= " AND `system` <= ".$form["smax"]." ";
+    //age
+    $since = (int)(time() - $form["dayre"] * 24 * 60 * 60 );
+    $requete .= " AND `dateRE` >  ".$since." ";
+    ///mes re
+
+    $requete .= "  order by dateRE desc ";
+    $requete .= "  LIMIT  ".$form["limite"]."  ";
+    $tResult=array();
+    $result = $db->sql_query($requete);
+
+    while ($row = $db->sql_fetch_assoc($result)) {
+        $tResult[] = $row;
+    }
+    return $tResult;
+
+}
+

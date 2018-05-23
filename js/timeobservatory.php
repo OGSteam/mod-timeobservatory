@@ -15,9 +15,6 @@
         jQuery('.syncTimestamp').each(function() {
             var currentElement = $(this);
             timeStamp = Number($(this).attr('data')) + Number(currentTime);
-            console.log("timeStamp : " + timeStamp);
-            console.log("curentTime : " + currentTime);
-            console.log("syncdelay : " + syncdelay);
             currentElement.text( sformat(timeStamp));
         });
         // préparation prochaine passe
