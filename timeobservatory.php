@@ -16,6 +16,10 @@ $form["smin"]= (isset($pub_smin)) ? (int)$pub_smin :1;
 $form["dayre"]= (isset($pub_dayre)) ? (int)$pub_dayre :999;
 $form["limite"]= (isset($pub_limite)) ? (int)$pub_limite :200;
 $form["isplayerre"]= (isset($pub_isplayerre)) ? true :false;
+$form["isplayername"]= (isset($pub_isplayername)) ? true :false;
+$form["playername"]= (isset($pub_isplayername)) ?  $db->sql_escape_string($pub_playername) :"";
+$form["isallyname"]= (isset($pub_isallyname)) ? true :false;
+$form["allyname"]= (isset($pub_isallyname)) ?  $db->sql_escape_string($pub_allyname) :"";
 
 
 $data["form"]= $form;

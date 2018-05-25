@@ -51,6 +51,16 @@ function getREbyFilter($form)
     {
         $requete .= " AND `sender_id` =  ".$user_data['user_id']." ";
     }
+    ///filtre playername
+    if ($form["isplayername"])
+    {
+        $requete .= " AND `player` like '%".$form["playername"]."%' ";
+    }
+    ///filtre allyname
+    if ($form["isallyname"])
+    {
+        $requete .= " AND `ally` like '%".$form["allyname"]."%' ";
+    }
 
     $requete .= "  order by dateRE desc ";
     $requete .= "  LIMIT  ".$form["limite"]."  ";

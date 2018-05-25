@@ -11,7 +11,7 @@ $nb = 1;
 <h3>Formulaire de recherche</h3>
     <p style="color: red">
         <strong>ATTENTION, Mod en developpement, version préliminaire! </strong><BR />
-        les recherches par joueur /alliance et filtre "mes re uniquement " Non implémentées
+        
 
     </p>
 <form method="post" action="#">
@@ -41,11 +41,18 @@ $nb = 1;
                 Joueur
             </td>
             <th >
-                <input type="checkbox"  name="isplayername">
+                <?php if( $data["form"]["isplayername"]): ?>
+                    <input type="checkbox"  name="isplayername" checked>
+                <?php else : ?>
+                    <input type="checkbox"  name="isplayername">
+                <?php endif ; ?>
             </th>
-
             <th>
-                <input type="text"   size="30" name="playername" />
+                <?php if( $data["form"]["isplayername"]): ?>
+                    <input type="text"   size="30" name="playername" value = "<?php echo $data["form"]["playername"];?>" />
+                <?php else : ?>
+                    <input type="text"   size="30" name="playername" />
+                <?php endif ; ?>
             </th>
             <td class="c" >
                 Age RE (En jour)
@@ -78,10 +85,18 @@ $nb = 1;
                 Alliance
             </td>
             <th >
-                <input type="checkbox"  name="isallyname">
+                <?php if( $data["form"]["isallyname"]): ?>
+                    <input type="checkbox"  name="isallyname" checked>
+                <?php else : ?>
+                    <input type="checkbox"  name="isallyname">
+                <?php endif ; ?>
             </th>
             <th>
-                <input type="text"   size="30" name="allyname" />
+                <?php if( $data["form"]["isallyname"]): ?>
+                    <input type="text"   size="30" name="allyname" value = "<?php echo $data["form"]["allyname"];?>" />
+                <?php else : ?>
+                    <input type="text"   size="30" name="allyname" />
+                <?php endif ; ?>
             </th>
             <td class="c" >
                 Limite Réponse
@@ -191,5 +206,7 @@ $nb = 1;
 
     </table>
 </div>
+
+
 
 <!--<p>Même si ton adversaire te semble une souris, surveille-le comme s'il était un lion</p>-->
