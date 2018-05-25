@@ -24,12 +24,17 @@ if (!defined('IN_SPYOGAME') )
         background-color: #040406;
         width: auto;
     }
-   table .tableTimeobservatory  tr:nth-child(2n) td{
+   table .tableTimeobservatory  tr:nth-child(2n) {
        background-color: #10131a;
    }
-   table .tableTimeobservatory tr:nth-child(2n+1) td {
+   table .tableTimeobservatory tr:nth-child(2n+1)  {
        background-color: #1c212e;
    }
+
+   table .tableTimeobservatory tr:hover  {
+       background-color: #485061;
+   }
+
 
    table .tableTimeobservatory td {
        border:1px solid #9497a0;
