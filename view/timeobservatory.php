@@ -57,7 +57,7 @@ $nb = 1;
                 Mes RE uniquement!
             </td>
             <th >
-                <input type="checkbox"  name="isplayerre">
+                <input type="checkbox"  name="isplayerre" <?php if($data["form"]["isplayerre"]){echo " checked " ;}?>>
             </th>
         </tr>
         <tr>
@@ -191,7 +191,5 @@ $nb = 1;
 
     </table>
 </div>
-
-
 
 <!--<p>Même si ton adversaire te semble une souris, surveille-le comme s'il était un lion</p>-->

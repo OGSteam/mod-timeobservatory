@@ -15,6 +15,7 @@ $form["smax"]= (isset($pub_smax)) ? (int)$pub_smax :499;
 $form["smin"]= (isset($pub_smin)) ? (int)$pub_smin :1;
 $form["dayre"]= (isset($pub_dayre)) ? (int)$pub_dayre :999;
 $form["limite"]= (isset($pub_limite)) ? (int)$pub_limite :200;
+$form["isplayerre"]= (isset($pub_isplayerre)) ? true :false;
 
 
 $data["form"]= $form;

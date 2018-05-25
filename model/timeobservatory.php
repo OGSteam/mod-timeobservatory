@@ -34,7 +34,7 @@ function getREbyFilter($form)
     //$form["limite"]
 
 
-    global $db;
+    global $db, $user_data;
     $requete = "select * from " . TABLE_PARSEDSPY . "  ";
     $requete .= "LEFT JOIN " . TABLE_UNIVERSE. " ON coordinates =  concat(galaxy, ':', system, ':', row)   ";
     $requete .= "WHERE ";
@@ -47,6 +47,10 @@ function getREbyFilter($form)
     $since = (int)(time() - $form["dayre"] * 24 * 60 * 60 );
     $requete .= " AND `dateRE` >  ".$since." ";
     ///mes re
+    if ($form["isplayerre"])
+    {
+        $requete .= " AND `sender_id` =  ".$user_data['user_id']." ";
+    }
 
     $requete .= "  order by dateRE desc ";
     $requete .= "  LIMIT  ".$form["limite"]."  ";
@@ -56,7 +60,7 @@ function getREbyFilter($form)
     while ($row = $db->sql_fetch_assoc($result)) {
         $tResult[] = $row;
     }
-    return $tResult;
+        return $tResult;
 
 }
 
