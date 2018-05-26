@@ -11,7 +11,7 @@ $nb = 1;
 <h3>Formulaire de recherche</h3>
     <p style="color: red">
         <strong>ATTENTION, Mod en developpement, version préliminaire! </strong><BR />
-        
+
 
     </p>
 <form method="post" action="#">
@@ -126,7 +126,7 @@ $nb = 1;
                     Acti
                 </th>
                 <th>
-                    age
+                    Date|Heure
                 </th>
                 <th>
                     Joueur
@@ -140,13 +140,16 @@ $nb = 1;
                 </th>
 
                 <th>
-                    pillage
+                    Pillage
                 </th>
                 <th>
-                    flotte
+                    Flotte
                 </th>
                 <th>
-                    defense
+                    Defense
+                </th>
+                <th colspan="3">
+                    Actions
                 </th>
 
             </tr>
@@ -198,13 +201,24 @@ $nb = 1;
                 <td class="def">
                     <?php echo getDef($row); ?>
                 </td>
-
+                <td class="img">
+                    <img src="./mod/timeobservatory/img/voir.png" />
+                </td>
+                <td class="img">
+                    <img src="./mod/timeobservatory/img/hide.png" />
+                </td>
+                <td class="img">
+                    <img src="./mod/timeobservatory/img/delete.png" />
+                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>
 
 
     </table>
+</div>
+<div class="info">
+    <span class="info"><h1>TITRE</h1><p>Content 1</p><p>content 2 </p>
 </div>
 
 

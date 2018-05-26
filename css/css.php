@@ -35,7 +35,6 @@ if (!defined('IN_SPYOGAME') )
        background-color: #485061;
    }
 
-
    table .tableTimeobservatory td {
        border:1px solid #9497a0;
        padding-left: 10px;
@@ -68,7 +67,45 @@ if (!defined('IN_SPYOGAME') )
    table .tableTimeobservatory td.player {
        color: #ffff00;
    }
+   table .tableTimeobservatory td.img {
+       padding: 0px;
+   margin: 0px;
+   }
 
+   table .tableTimeobservatory td.img img{
+       width:16px;
+       height: 16px;
+       border-color: red;
+       border-style: solid;
+       border-width: 1px;
+
+   }
+
+
+   .info {
+        visibility: hidden;
+       width: 20%;
+       max-width: 400px;
+       height: 50%;
+       max-height: 600px;
+       background-color: black;
+       color: #fff;
+       text-align: center;
+       border-radius: 6px;
+       padding: 5px;
+       overflow: auto;
+        border-style: solid;
+        border-width: 5px;
+       border-color: #9497a0;
+
+       /* Position */
+       position: fixed;
+       top: 25%;
+       left: 10px;
+       background-color: black;
+       z-index: 1;
+   }
+   #t2:focus ~ b{color:red;}
 
 </style>
 

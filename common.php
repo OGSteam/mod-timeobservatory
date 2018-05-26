@@ -11,6 +11,7 @@ define("FOLDER_JS","mod/timeobservatory/js/");
 define("FOLDER_CSS","mod/timeobservatory/css/");
 define("FOLDER_VIEW","mod/timeobservatory/view/");
 define("FOLDER_FN","mod/timeobservatory/functions/");
+define("FOLDER_IMG","mod/timeobservatory/img/");
 include_once(FOLDER."model/timeobservatory.php");
 include_once(FOLDER_FN."utils.php");
 

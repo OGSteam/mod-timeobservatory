@@ -2,13 +2,24 @@
 
 
 <script type="text/javascript" language="JavaScript">
+
+     $( document ).ready(function() {
+      //  syncTimer()
+        setInterval(syncTimer, (syncdelay * 1000));
+        setViewinfo();
+
+    });
+
+
+
+    // __________________________________________________________//
+    //_______________  SYNCHRONISATION __________________________//
+    // __________________________________________________________//
+
+
     var currentTime = 0;
     var syncdelay = 1; // seconde
 
-    $( document ).ready(function() {
-      //  syncTimer()
-        setInterval(syncTimer, (syncdelay * 1000));
-    });
 
     function syncTimer()
     {
@@ -34,5 +45,17 @@
       return $.map(fm, function(v, i) { return ((v < 10) ? '0' : '') + v; }).join(':');
 
     }
+     // __________________________________________________________//
+
+
+     function setViewinfo() {
+
+
+     }
+
+
+
+
+
 
 </script>
