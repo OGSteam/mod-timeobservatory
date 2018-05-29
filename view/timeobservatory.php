@@ -156,7 +156,7 @@ $nb = 1;
         </theader>
         <tbody>
         <?php foreach ($data["re"] as $row): ?>
-            <tr>
+            <tr class="idspy_<?php echo $row["id_spy"]?>">
                 <th>
                     <?php echo $nb; ?>
                     <?php $nb++; ?>
@@ -202,13 +202,13 @@ $nb = 1;
                     <?php echo getDef($row); ?>
                 </td>
                 <td class="img">
-                    <img src="./mod/timeobservatory/img/voir.png" />
+                    <img class="imgview" src="./mod/timeobservatory/img/voir.png" />
                 </td>
                 <td class="img">
-                    <img src="./mod/timeobservatory/img/hide.png" />
+                    <img class="imghide" src="./mod/timeobservatory/img/hide.png" />
                 </td>
                 <td class="img">
-                    <img src="./mod/timeobservatory/img/delete.png" />
+                    <img class ="imgdelete" id_spy="<?php echo $row["id_spy"]?>" src="./mod/timeobservatory/img/delete.png" />
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -217,8 +217,8 @@ $nb = 1;
 
     </table>
 </div>
-<div class="info">
-    <span class="info"><h1>TITRE</h1><p>Content 1</p><p>content 2 </p>
+<div class="info" style="">
+    <span class="infocontent"><h1>TITRE</h1><p>Content 1</p><p>content 2 </p>
 </div>
 
 

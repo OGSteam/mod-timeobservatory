@@ -83,7 +83,7 @@ if (!defined('IN_SPYOGAME') )
 
 
    .info {
-        visibility: hidden;
+       display: none;
        width: 20%;
        max-width: 400px;
        height: 50%;
@@ -105,7 +105,7 @@ if (!defined('IN_SPYOGAME') )
        background-color: black;
        z-index: 1;
    }
-   #t2:focus ~ b{color:red;}
+
 
 </style>
 

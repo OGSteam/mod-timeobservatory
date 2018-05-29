@@ -54,7 +54,26 @@
      }
 
 
+     $('.imgview').click(function() {
+         alert("non implementé");
+         $('.info').show(); $('.info').fadeIn();
+     });
 
+     $('.imghide').click(function() {
+         alert("non implementé");
+         $('.info').hide(); $('.info').fadeOut();
+     });
+
+     $('.imgdelete').click(function() {
+         if (confirm("Supprimer ?")) {
+            // recuperation de l 'element
+             var currentElement = $(this);
+             var currentSpy = $(this).attr('id_spy')
+             $( ".idspy_" + currentSpy ).remove();
+         }
+         return false;
+
+     });
 
 
 
