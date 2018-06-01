@@ -60,3 +60,9 @@ function reIsMoon($data)
     return $retour;
 
 }
+
+function getGWithCoord($coord)
+{
+$tcoord = explode(":",$coord );
+return $tcoord;
+}

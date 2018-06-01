@@ -86,21 +86,34 @@ if (!defined('IN_SPYOGAME') )
        display: none;
        width: 20%;
        max-width: 400px;
-       height: 50%;
-       max-height: 600px;
+
        background-color: black;
        color: #fff;
        text-align: center;
        border-radius: 6px;
        padding: 5px;
        overflow: auto;
-        border-style: solid;
-        border-width: 5px;
+       border-style: solid;
+       border-width: 5px;
        border-color: #9497a0;
 
+
+   }
+
+   .infore {
+       height: 50%;
        /* Position */
        position: fixed;
-       top: 25%;
+       top: 5%;
+       left: 10px;
+       background-color: black;
+       z-index: 1;
+   }
+   .inforaid {
+       height: 30%;
+       /* Position */
+       position: fixed;
+       top: 60%;
        left: 10px;
        background-color: black;
        z-index: 1;
