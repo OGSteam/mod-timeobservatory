@@ -227,15 +227,18 @@ $nb = 1;
           info re
         </span>
 </div>
+<!--
 <div id="currentraid" class="info inforaid" style="">
     <span class="infocontent">
 
 
     </span></div>
+    -->
 <?php foreach ($data["re"] as $row): ?>
 <?php endforeach; ?>
 
 <?php foreach ($data["re"] as $row): ?>
+    <?php $cleanRow = reRowClean($row);?>
     <div id="infore_<?php echo $row["id_spy"] ?>" style="display: none;">
         <span class="infocontent">
           <table style="width:100%;">
@@ -255,106 +258,106 @@ $nb = 1;
                 </tr>
                <tr>
                     <td>Métal:</td>
-                    <th><?php echo $row["metal"] ?></th>
+                    <th><?php echo $cleanRow["metal"] ?></th>
                     <td>Cristal:</td>
-                    <th><?php echo $row["cristal"] ?></th>
+                    <th><?php echo $cleanRow["cristal"] ?></th>
                 </tr>
                 <tr>
                     <td>Deutérium:</td>
-                    <th><?php echo $row["deuterium"] ?></th>
+                    <th><?php echo $cleanRow["deuterium"] ?></th>
                     <td>Energie:</td>
-                    <th><?php echo $row["energie"] ?></th>
+                    <th><?php echo $cleanRow["energie"] ?></th>
                 </tr>
                 <tr>
                     <td class="l" colspan="4">flotte</td>
                 </tr>
                 <tr>
                     <td>PT:</td>
-                    <th><?php echo $row["PT"] ?></th>
+                    <th><?php echo $cleanRow["PT"] ?></th>
                     <td>GT:</td>
-                    <th><?php echo $row["GT"] ?></th>
+                    <th><?php echo $cleanRow["GT"] ?></th>
                 </tr>
                <tr>
                     <td>CLE:</td>
-                    <th><?php echo $row["CLE"] ?></th>
+                    <th><?php echo $cleanRow["CLE"] ?></th>
                     <td>CLO:</td>
-                    <th><?php echo $row["CLO"] ?></th>
+                    <th><?php echo $cleanRow["CLO"] ?></th>
                 </tr>
                <tr>
                     <td>CR:</td>
-                    <th><?php echo $row["CR"] ?></th>
+                    <th><?php echo $cleanRow["CR"] ?></th>
                     <td>VB:</td>
-                    <th><?php echo $row["VB"] ?></th>
+                    <th><?php echo $cleanRow["VB"] ?></th>
                 </tr>
                <tr>
                     <td>VC:</td>
-                    <th><?php echo $row["VC"] ?></th>
+                    <th><?php echo $cleanRow["VC"] ?></th>
                     <td>REC:</td>
-                    <th><?php echo $row["REC"] ?></th>
+                    <th><?php echo $cleanRow["REC"] ?></th>
                 </tr>
                <tr>
                     <td>SE:</td>
-                    <th><?php echo $row["SE"] ?></th>
+                    <th><?php echo $cleanRow["SE"] ?></th>
                     <td>Cristal:</td>
-                    <th><?php echo $row["BMD"] ?></th>
+                    <th><?php echo $cleanRow["BMD"] ?></th>
                 </tr>
                 <tr>
                     <td>DST:</td>
-                    <th><?php echo $row["DST"] ?></th>
+                    <th><?php echo $cleanRow["DST"] ?></th>
                     <td>EDLM:</td>
-                    <th><?php echo $row["EDLM"] ?></th>
+                    <th><?php echo $cleanRow["EDLM"] ?></th>
                 </tr>
               <tr>
                     <td>SAT:</td>
-                    <th><?php echo $row["DST"] ?></th>
+                    <th><?php echo $cleanRow["DST"] ?></th>
                     <td>TRA:</td>
-                    <th><?php echo $row["EDLM"] ?></th>
+                    <th><?php echo $cleanRow["EDLM"] ?></th>
                 </tr>
                 <tr>
                     <td>DST:</td>
-                    <th><?php echo $row["DST"] ?></th>
+                    <th><?php echo $cleanRow["DST"] ?></th>
                     <td>EDLM:</td>
-                    <th><?php echo $row["EDLM"] ?></th>
+                    <th><?php echo $cleanRow["EDLM"] ?></th>
                 </tr>
                     <td class="l" colspan="4">Défense</td>
               </tr>
               <tr>
                     <td>Lanceur de missiles:</td>
-                    <th><?php echo $row["LM"] ?></th>
+                    <th><?php echo $cleanRow["LM"] ?></th>
                     <td>Artillerie laser légère:</td>
-                    <th><?php echo $row["LLE"] ?></th>
+                    <th><?php echo $cleanRow["LLE"] ?></th>
                <tr>
                     <td>Artillerie laser lourde:</td>
-                    <th><?php echo $row["LLO"] ?></th>
+                    <th><?php echo $cleanRow["LLO"] ?></th>
                     <td>Canon de Gauss:</td>
-                    <th><?php echo $row["CG"] ?></th>
+                    <th><?php echo $cleanRow["CG"] ?></th>
                <tr>
                     <td>Artillerie à ions:</td>
-                    <th><?php echo $row["AI"] ?></th>
+                    <th><?php echo $cleanRow["AI"] ?></th>
                     <td>Lanceur de plasma:</td>
-                    <th><?php echo $row["LP"] ?></th>
+                    <th><?php echo $cleanRow["LP"] ?></th>
                <tr>
                     <td>Petit bouclier :</td>
-                    <th><?php echo $row["PB"] ?></th>
+                    <th><?php echo $cleanRow["PB"] ?></th>
                     <td>Grand bouclier:</td>
-                    <th><?php echo $row["GB"] ?></th>
+                    <th><?php echo $cleanRow["GB"] ?></th>
                <tr>
                     <td>Missile interception:</td>
-                    <th><?php echo $row["MIC"] ?></th>
+                    <th><?php echo $cleanRow["MIC"] ?></th>
                     <td>Missile interplanetaire:</td>
-                    <th><?php echo $row["MIP"] ?></th>
+                    <th><?php echo $cleanRow["MIP"] ?></th>
                  <tr>
                  <tr>
                     <td class="l" colspan="4">Bâtiments</td>
                 </tr>
                     <td>Mine de métal:</td>
-                    <th><?php echo $row["M"] ?></th>
+                    <th><?php echo $cleanRow["M"] ?></th>
                     <td>Mine de cristal:</td>
-                    <th><?php echo $row["C"] ?></th>
+                    <th><?php echo $cleanRow["C"] ?></th>
               </tr>
               <tr>
                     <td>Synthétiseur de deutérium:</td>
-                    <th><?php echo $row["D"] ?></th>
+                    <th><?php echo $cleanRow["D"] ?></th>
                     <td>Activite:</td>
                     <th>
                         <?php if ($row["activite"] > 0) : ?>
@@ -373,26 +376,26 @@ $nb = 1;
 
 
                     <td>Espionnage:</td>
-                    <th><?php echo $row["Esp"] ?></th>
+                    <th><?php echo $cleanRow["Esp"] ?></th>
                     <td>Armes:</td>
-                      <th><?php echo $row["Armes"] ?></th>
+                      <th><?php echo $cleanRow["Armes"] ?></th>
                 </tr>
                 <tr>
 
                     <td>Bouclier:</td>
-                    <th><?php echo $row["Bouclier"] ?></th>
+                    <th><?php echo $cleanRow["Bouclier"] ?></th>
                     <td>Protection:</td>
-                    <th><?php echo $row["Protection"] ?></th>
+                    <th><?php echo $cleanRow["Protection"] ?></th>
                  </tr>
                 <tr>
                     <td>impulsion:</td>
-                    <th><?php echo $row["RI"] ?></th>
+                    <th><?php echo $cleanRow["RI"] ?></th>
                     <td>combustion:</td>
-                    <th><?php echo $row["RC"] ?></th>
+                    <th><?php echo $cleanRow["RC"] ?></th>
                 </tr>
                 <tr>
                     <td>Hyperespace:</td>
-                    <th><?php echo $row["PH"] ?></th>
+                    <th><?php echo $cleanRow["PH"] ?></th>
                     <td></td>
                     <th></th>
                 </tr>

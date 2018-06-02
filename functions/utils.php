@@ -66,3 +66,16 @@ function getGWithCoord($coord)
 $tcoord = explode(":",$coord );
 return $tcoord;
 }
+
+function reRowClean($tRow)
+{
+    $retour = array();
+    foreach ($tRow as $k => $v)
+    {
+        $v= ($v =="-1") ? 0 : (int)$v;
+        $v =  numbers( $v);
+        $retour[$k]=$v;
+    }
+    return $retour;
+
+}

@@ -101,7 +101,7 @@ if (!defined('IN_SPYOGAME') )
    }
 
    .infore {
-       height: 50%;
+       height: 90%;
        /* Position */
        position: fixed;
        top: 5%;
