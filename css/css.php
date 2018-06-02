@@ -47,7 +47,7 @@ if (!defined('IN_SPYOGAME') )
 
 
    table .tableTimeobservatory td.acti {
-       color: #d4d5d9;
+       color:  #ff3333;
    }
    table .tableTimeobservatory td.ally {
        color: #ffff00;
@@ -67,10 +67,16 @@ if (!defined('IN_SPYOGAME') )
    table .tableTimeobservatory td.player {
        color: #ffff00;
    }
+   table .tableTimeobservatory td.Timestamp {
+       color: #d4d5d9;
+   }
+
    table .tableTimeobservatory td.img {
        padding: 0px;
    margin: 0px;
    }
+
+
 
    table .tableTimeobservatory td.img img{
        width:16px;

@@ -129,6 +129,9 @@ $nb = 1;
                     Acti
                 </th>
                 <th>
+                    Timer
+                </th>
+                <th>
                     Date|Heure
                 </th>
                 <th>
@@ -143,7 +146,7 @@ $nb = 1;
                 </th>
 
                 <th>
-                    Pillage
+                    Ressources
                 </th>
                 <th>
                     Flotte
@@ -185,6 +188,9 @@ $nb = 1;
                 <?php $sincetime = time() - (int)$row["dateRE"]; ?>
                 <td class="syncTimestamp" data="<?php echo $sincetime; ?>">
 
+                </td>
+                <td class="Timestamp">
+                    <?php echo date('j-m-y | h:i:s',$row["dateRE"]);?>
                 </td>
                 <td class="player">
                     <?php echo $row["player"]; ?>
