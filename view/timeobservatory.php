@@ -1,4 +1,5 @@
 <?php
+if (!defined('IN_SPYOGAME')) die("Hacking Attemp!");
 global $data;
 $nb = 1;
 ?>
@@ -190,7 +191,7 @@ $nb = 1;
 
                 </td>
                 <td class="Timestamp">
-                    <?php echo date('j-m-y | h:i:s',$row["dateRE"]);?>
+                    <?php echo date('j-m-y | H:i:s', $row["dateRE"]); ?>
                 </td>
                 <td class="player">
                     <?php echo $row["player"]; ?>
@@ -240,184 +241,8 @@ $nb = 1;
 
     </span></div>
     -->
-<?php foreach ($data["re"] as $row): ?>
-<?php endforeach; ?>
-
-<?php foreach ($data["re"] as $row): ?>
-    <?php $cleanRow = reRowClean($row);?>
-    <div id="infore_<?php echo $row["id_spy"] ?>" style="display: none;">
-        <span class="infocontent">
-          <table style="width:100%;">
-              <tr>
-                  <td colspan="4">
-                      Ressources sur <?php echo $row["planet_name"]; ?> [<?php echo $row["coordinates"]; ?>
-                      ] (joueur '<?php echo $row["player"]; ?>') <br/> le <?php echo $row["dateRE"]; ?>
-
-                      <a href="#"
-                         onclick="window.open('index.php?action=show_reportspy&amp;galaxy=<?php echo explode(":", $row["coordinates"])[0]; ?>&amp;system=<?php echo explode(":", $row["coordinates"])[1]; ?>&amp;row=<?php echo explode(":", $row["coordinates"])[2]; ?>','_blank','width=640, height=480, toolbar=0, location=0, directories=0, status=0, scrollbars=1, resizable=1, copyhistory=0, menuBar=0');return(false)">[Version Complete]</a>
 
 
-                  </td>
-              </tr>
-             <tr>
-                    <td class="l" colspan="4">Ressources</td>
-                </tr>
-               <tr>
-                    <td>Métal:</td>
-                    <th><?php echo $cleanRow["metal"] ?></th>
-                    <td>Cristal:</td>
-                    <th><?php echo $cleanRow["cristal"] ?></th>
-                </tr>
-                <tr>
-                    <td>Deutérium:</td>
-                    <th><?php echo $cleanRow["deuterium"] ?></th>
-                    <td>Energie:</td>
-                    <th><?php echo $cleanRow["energie"] ?></th>
-                </tr>
-                <tr>
-                    <td class="l" colspan="4">flotte</td>
-                </tr>
-                <tr>
-                    <td>PT:</td>
-                    <th><?php echo $cleanRow["PT"] ?></th>
-                    <td>GT:</td>
-                    <th><?php echo $cleanRow["GT"] ?></th>
-                </tr>
-               <tr>
-                    <td>CLE:</td>
-                    <th><?php echo $cleanRow["CLE"] ?></th>
-                    <td>CLO:</td>
-                    <th><?php echo $cleanRow["CLO"] ?></th>
-                </tr>
-               <tr>
-                    <td>CR:</td>
-                    <th><?php echo $cleanRow["CR"] ?></th>
-                    <td>VB:</td>
-                    <th><?php echo $cleanRow["VB"] ?></th>
-                </tr>
-               <tr>
-                    <td>VC:</td>
-                    <th><?php echo $cleanRow["VC"] ?></th>
-                    <td>REC:</td>
-                    <th><?php echo $cleanRow["REC"] ?></th>
-                </tr>
-               <tr>
-                    <td>SE:</td>
-                    <th><?php echo $cleanRow["SE"] ?></th>
-                    <td>Cristal:</td>
-                    <th><?php echo $cleanRow["BMD"] ?></th>
-                </tr>
-                <tr>
-                    <td>DST:</td>
-                    <th><?php echo $cleanRow["DST"] ?></th>
-                    <td>EDLM:</td>
-                    <th><?php echo $cleanRow["EDLM"] ?></th>
-                </tr>
-              <tr>
-                    <td>SAT:</td>
-                    <th><?php echo $cleanRow["DST"] ?></th>
-                    <td>TRA:</td>
-                    <th><?php echo $cleanRow["EDLM"] ?></th>
-                </tr>
-                <tr>
-                    <td>DST:</td>
-                    <th><?php echo $cleanRow["DST"] ?></th>
-                    <td>EDLM:</td>
-                    <th><?php echo $cleanRow["EDLM"] ?></th>
-                </tr>
-                    <td class="l" colspan="4">Défense</td>
-              </tr>
-              <tr>
-                    <td>Lanceur de missiles:</td>
-                    <th><?php echo $cleanRow["LM"] ?></th>
-                    <td>Artillerie laser légère:</td>
-                    <th><?php echo $cleanRow["LLE"] ?></th>
-               <tr>
-                    <td>Artillerie laser lourde:</td>
-                    <th><?php echo $cleanRow["LLO"] ?></th>
-                    <td>Canon de Gauss:</td>
-                    <th><?php echo $cleanRow["CG"] ?></th>
-               <tr>
-                    <td>Artillerie à ions:</td>
-                    <th><?php echo $cleanRow["AI"] ?></th>
-                    <td>Lanceur de plasma:</td>
-                    <th><?php echo $cleanRow["LP"] ?></th>
-               <tr>
-                    <td>Petit bouclier :</td>
-                    <th><?php echo $cleanRow["PB"] ?></th>
-                    <td>Grand bouclier:</td>
-                    <th><?php echo $cleanRow["GB"] ?></th>
-               <tr>
-                    <td>Missile interception:</td>
-                    <th><?php echo $cleanRow["MIC"] ?></th>
-                    <td>Missile interplanetaire:</td>
-                    <th><?php echo $cleanRow["MIP"] ?></th>
-                 <tr>
-                 <tr>
-                    <td class="l" colspan="4">Bâtiments</td>
-                </tr>
-                    <td>Mine de métal:</td>
-                    <th><?php echo $cleanRow["M"] ?></th>
-                    <td>Mine de cristal:</td>
-                    <th><?php echo $cleanRow["C"] ?></th>
-              </tr>
-              <tr>
-                    <td>Synthétiseur de deutérium:</td>
-                    <th><?php echo $cleanRow["D"] ?></th>
-                    <td>Activite:</td>
-                    <th>
-                        <?php if ($row["activite"] > 0) : ?>
-                            <?php echo $row["activite"] ?>
-                        <?php else : ?>
-                            -
-                        <?php endif; ?>
-
-                    </th>
-                </tr>
-
-               <tr>
-                    <td class="l" colspan="4">Recherche</td>
-                </tr>
-              <tr>
-
-
-                    <td>Espionnage:</td>
-                    <th><?php echo $cleanRow["Esp"] ?></th>
-                    <td>Armes:</td>
-                      <th><?php echo $cleanRow["Armes"] ?></th>
-                </tr>
-                <tr>
-
-                    <td>Bouclier:</td>
-                    <th><?php echo $cleanRow["Bouclier"] ?></th>
-                    <td>Protection:</td>
-                    <th><?php echo $cleanRow["Protection"] ?></th>
-                 </tr>
-                <tr>
-                    <td>impulsion:</td>
-                    <th><?php echo $cleanRow["RI"] ?></th>
-                    <td>combustion:</td>
-                    <th><?php echo $cleanRow["RC"] ?></th>
-                </tr>
-                <tr>
-                    <td>Hyperespace:</td>
-                    <th><?php echo $cleanRow["PH"] ?></th>
-                    <td></td>
-                    <th></th>
-                </tr>
-
-          </table>
-
-
-    </div>
-    <div id="inforaid_<?php echo $row["id_spy"] ?>" style="display: none;">
-    <span class="infocontent">
-        <h1>inforaid : <?php echo $row["player"]; ?></h1>
-        <p>Content 1</p>
-        <p>content 2 </p>
-
-    </span></div>
-<?php endforeach; ?>
 
 
 <!--<p>Même si ton adversaire te semble une souris, surveille-le comme s'il était un lion</p>-->

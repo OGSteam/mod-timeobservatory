@@ -26,6 +26,7 @@ $data["form"]= $form;
 $data["re"] = getREbyFilter($form);
 include(FOLDER_CSS."/css.php");
 include(FOLDER_VIEW."/timeobservatory.php");
+include(FOLDER_VIEW."/infore.php");
 
 
 

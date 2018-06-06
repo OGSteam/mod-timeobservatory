@@ -5,6 +5,12 @@
  * Time: 14:05
  */
 if (!defined('IN_SPYOGAME')) die("Hacking Attemp!");
+const IS_RES = 0;
+const IS_FLOTTE = 1;
+const IS_DEF = 2;
+const IS_BAT = 3;
+const IS_TECH = 4;
+
 
 
 function getDataRe($data,$columns)
@@ -26,16 +32,34 @@ function getPillage($data)
     return getDataRe($data,$columns);
 }
 
-function getflotte($data)
+function getflotteColumn()
 {
     $columns = array("PT","GT","CLE","CLO","CR","VB","VC","REC","SE","BMD","DST","EDLM","TRA");
+    return $columns;
+}
+
+function getflotte($data)
+{
+    $columns = getflotteColumn();
     return getDataRe($data,$columns);
+}
+
+function getDefColumn()
+{
+    $columns = array("LM","LLE","LLO","CG","AI","LP","PB","GB");
+    return $columns;
 }
 
 function getDef($data)
 {
-    $columns = array("LM","LLE","LLO","CG","AI","LP","PB","GB");
+    $columns = getDefColumn();
     return getDataRe($data,$columns);
+}
+
+function visibility($data)
+{
+    $retour =IS_RES ;
+
 }
 
 function numbers($nb)
