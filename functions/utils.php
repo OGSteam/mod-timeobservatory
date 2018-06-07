@@ -70,18 +70,40 @@ function numbers($nb)
 
 function reIsMoon($data)
 {
-    $retour = false;
-    //par defaut on fixe une planete : du coup pas besoin de gerer la planete
-    //$tabIsPlanete = array("M","C","D","CES","CEF","SAT");
-    $tabIsMoon = array("BaLu","Pha","PoSa");
-   foreach ($tabIsMoon as $elemPlanet)
-   {
-       if ((int)$data[$elemPlanet] > 0)
-       {
-           $retour = true;
-       }
-   }
-    return $retour;
+ // si construction uniquement sur lune
+        $tabIsMoon = array("BaLu","Pha","PoSa");
+    foreach ($tabIsMoon as $elemPlanet)
+    {
+        if ((int)$data[$elemPlanet] > 0)
+        {
+            return true;
+        }
+    }
+    // si construction uniquement sur planete
+    $tabIsPlanete = array("M","C","D","CES","CEF","SAT");
+      foreach ($tabIsPlanete as $elemPlanet)
+    {
+        if ((int)$data[$elemPlanet] > 0)
+        {
+            return false;
+        }
+    }
+    // si pas de lune dans le ss
+    if ($data["moon"] == "0")
+    {
+        return false;
+    }
+
+   // verification sur la concordance nom planete et nom dans ss
+    if ($data["planet_name"] == $data["name"])
+    {
+        return false;
+
+    }
+    else
+    {
+        return true;
+    }
 
 }
 
