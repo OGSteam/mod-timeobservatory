@@ -5,12 +5,11 @@
  * Time: 14:05
  */
 if (!defined('IN_SPYOGAME')) die("Hacking Attemp!");
-const IS_RES = 0;
-const IS_FLOTTE = 1;
-const IS_DEF = 2;
-const IS_BAT = 3;
-const IS_TECH = 4;
-
+const IS_RES = 0; // on ne voit rien (retouce uniquement )
+const IS_FLOTTE = 1; // ress + flotte
+const IS_DEF = 2; // ress + flotte + def
+const IS_BAT = 3;// ress + flotte + def + bat
+const IS_TECH = 4;// on ne voit tout
 
 
 function getDataRe($data,$columns)
@@ -50,6 +49,20 @@ function getDefColumn()
     return $columns;
 }
 
+
+function getTechnoColumn()
+{
+    $columns = array("Esp","Ordi","Armes","Bouclier","Protection","Protection","NRJ","Hyp","RC","RI","PH","Laser","Ions","Plasma","RRI","Graviton","Astrophysique");
+    return $columns;
+}
+
+function getBatColumn()
+{
+    $columns = array("M","C","D","CES","CEF","UdR","NRJ","UdN","CSp","HM","PH","HC","HD","Lab","Ter","DdR","Silo","BaLu","Pha","PoSa");
+    return $columns;
+}
+
+
 function getDef($data)
 {
     $columns = getDefColumn();
@@ -58,9 +71,47 @@ function getDef($data)
 
 function visibility($data)
 {
-    $retour =IS_RES ;
+    $retour =IS_RES ; // par defaut
+    // techno
+    $column =  getTechnoColumn();
+    if(isNotEmpty($data, $column))
+    {
+        return IS_TECH;
+    }
+    $column =  getBatColumn();
+    if(isNotEmpty($data, $column))
+    {
+        return IS_BAT;
+    }
+    $column =  getDefColumn();
+    if(isNotEmpty($data, $column))
+    {
+        return IS_DEF;
+    }
+    $column =  getflotteColumn();
+    if(isNotEmpty($data, $column))
+    {
+        return IS_FLOTTE;
+    }
 
+
+    return $retour;
 }
+
+function isNotEmpty($data, $column)
+{
+    $retour = false;
+    foreach ($column as $item)
+    {
+        if ((int)$data[$item] > 0)
+        {
+            return true;
+        }
+    }
+    return $retour;
+}
+
+
 
 function numbers($nb)
 {

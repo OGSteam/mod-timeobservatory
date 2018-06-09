@@ -77,6 +77,22 @@ if (!defined('IN_SPYOGAME') )
    }
 
 
+   table .tableTimeobservatory td.quality_0 {
+       color: #d40018;
+   }
+   table .tableTimeobservatory td.quality_1 {
+       color: #de8000;
+   }
+   table .tableTimeobservatory td.quality_2 {
+       color: #cfe500;
+   }
+   table .tableTimeobservatory td.quality_3 {
+       color: #82ea00;;
+   }
+   table .tableTimeobservatory td.quality_4 {
+       color: #09f100;
+   }
+
 
    table .tableTimeobservatory td.img img{
        width:16px;

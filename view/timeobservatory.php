@@ -10,11 +10,6 @@ $nb = 1;
 </div>
 <div class="header">
     <h3>Formulaire de recherche</h3>
-    <p style="color: red">
-        <strong>ATTENTION, Mod en developpement, version préliminaire! </strong><BR/>
-
-
-    </p>
     <form method="post" action="#">
         <table>
             <tr>
@@ -123,7 +118,7 @@ $nb = 1;
                 <th>
 
                 </th>
-                <th colspan="2">
+                <th colspan="3">
                     coords
                 </th>
                 <th>
@@ -178,6 +173,29 @@ $nb = 1;
                         P
                     <?php endif; ?>
                 </td>
+                <?php $visibility = visibility($row) ;?>
+                <td class ="quality_<?php echo $visibility; ?>">
+                    <?php
+                    switch($visibility)
+                    {
+                        case IS_RES:
+                            echo "*";
+                            break;
+                        case IS_FLOTTE:
+                            echo "**";
+                            break;
+                        case IS_DEF:
+                            echo "***";
+                            break;
+                        case IS_BAT:
+                            echo "****";
+                            break;
+                        case IS_TECH:
+                            echo "*****";
+                            break;
+                    }
+                   ?>
+                </td>
                 <td class="acti">
                     <?php if ($row["activite"] == "0"): ?>
 
@@ -186,6 +204,8 @@ $nb = 1;
                     <?php endif; ?>
 
                 </td>
+
+
                 <?php $sincetime = time() - (int)$row["dateRE"]; ?>
                 <td class="syncTimestamp" data="<?php echo $sincetime; ?>">
 
