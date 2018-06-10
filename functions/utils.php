@@ -12,14 +12,14 @@ const IS_BAT = 3;// ress + flotte + def + bat
 const IS_TECH = 4;// on ne voit tout
 
 
-function getDataRe($data,$columns)
+function getDataRe($data,$columns,$price)
 {
     $retour = 0;
     foreach ($columns as $column)
     {
         if ($data[$column] != '-1')
         {
-            $retour+= (int)$data[$column];
+            $retour+= floatval($data[$column]) * floatval($price[$column]);
         }
     }
     return numbers($retour);
@@ -28,25 +28,63 @@ function getDataRe($data,$columns)
 function getPillage($data)
 {
     $columns = array("metal","cristal","deuterium");
-    return getDataRe($data,$columns);
+    $price["metal"] =1;
+    $price["cristal"] = 1;
+    $price["deuterium"] = 1;
+    return getDataRe($data,$columns,$price);
 }
 
 function getflotteColumn()
 {
-    $columns = array("PT","GT","CLE","CLO","CR","VB","VC","REC","SE","BMD","DST","EDLM","TRA");
+    $columns = array("SAT","PT","GT","CLE","CLO","CR","VB","VC","REC","SE","BMD","DST","EDLM","TRA");
     return $columns;
+}
+function getflottePricewithoutDeut() // sans deut non recyclable
+{
+    $price = array();
+    $price["PT"] = 2+2 ;
+    $price["GT"] = 6+6;
+    $price["CLE"] = 2 + 1 ;
+    $price["CLO"] =6+4;
+    $price["CR"] = 20+70;
+    $price["VB"] = 45+15;
+    $price["VC"] = 10+20;
+    $price["REC"] = 10+60;
+    $price["SE"] = 1 ;
+    $price["BMD"] = 50+25;
+    $price["DST"] = 60+50 ;
+    $price["EDLM"] = 5000+4000 ;
+    $price["TRA"] = 3040 ;
+    $price["SAT"] = 2;
+
+    return $price;
 }
 
 function getflotte($data)
 {
     $columns = getflotteColumn();
-    return getDataRe($data,$columns);
+    $price = getflottePricewithoutDeut();
+    return getDataRe($data,$columns, $price);
 }
 
 function getDefColumn()
 {
     $columns = array("LM","LLE","LLO","CG","AI","LP","PB","GB");
     return $columns;
+}
+function getDefPricewithoutDeut() // sans deut non recyclable
+{
+    $price = array();
+    $price["LM"] = 2;
+    $price["LLE"] = floatval(1.5)+floatval(0.5);
+    $price["LLO"] =6+2 ;
+    $price["CG"] = 20+15;
+    $price["AI"] = 2+6;
+    $price["LP"] = 50+50;
+    $price["PB"] = 10+10 ;
+    $price["GB"] = 50+50;
+
+    return $price;
 }
 
 
@@ -66,7 +104,8 @@ function getBatColumn()
 function getDef($data)
 {
     $columns = getDefColumn();
-    return getDataRe($data,$columns);
+    $price = getDefPricewithoutDeut();
+    return getDataRe($data,$columns, $price);
 }
 
 function visibility($data)
