@@ -1,4 +1,4 @@
 TimeObservatory
-0.0.4
+0.0.5
 timeobservatory,timeobservatory,timeobservatory,timeobservatory,timeobservatory.php,1,0
 

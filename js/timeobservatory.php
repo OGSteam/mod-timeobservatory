@@ -76,7 +76,7 @@
     });
 
     $('.imgdelete').click(function () {
-        if (confirm("Supprimer ?")) {
+        if (confirm("Supprimer la ligne ?")) {
             // recuperation de l 'element
             var currentElement = $(this);
             var currentSpy = $(this).attr('id_spy')

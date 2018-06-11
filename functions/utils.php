@@ -20,6 +20,7 @@ function getDataRe($data,$columns,$price)
         if ($data[$column] != '-1')
         {
             $retour+= floatval($data[$column]) * floatval($price[$column]);
+
         }
     }
     return numbers($retour);
