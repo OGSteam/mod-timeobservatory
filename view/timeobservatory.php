@@ -16,7 +16,7 @@ $nb = 1;
                 <td class="c" colspan="2">Galaxie</td>
                 <td class="c" colspan="2">System</td>
                 <td class="c" colspan="3">Recherche</td>
-                <td class="c" colspan="2">Filtre</td>
+                <td class="c" colspan="4">Filtre</td>
                 <td class="c" colspan="2"></td>
 
             </tr>
@@ -56,6 +56,12 @@ $nb = 1;
                 </td>
                 <th>
                     <input type="input" size="3" name="dayre" value="<?php echo $data["form"]["dayre"]; ?>"/>
+                </th>
+                <td class="c">
+                   NB Flotte Min
+                </td>
+                <th>
+                    <input type="input" size="7" name="flottemin" value="<?php echo $data["form"]["flottemin"]; ?>"/>
                 </th>
                 <td class="c">
                     Mes RE uniquement!
@@ -102,6 +108,12 @@ $nb = 1;
                 </td>
                 <th>
                     <input type="text" size="3" name="limite" value="<?php echo $data["form"]["limite"]; ?>"/>
+                </th>
+                <td class="c">
+                    NB Flotte Max
+                </td>
+                <th>
+                    <input type="input" size="7" name="flottemax" value="<?php echo $data["form"]["flottemax"]; ?>"/>
                 </th>
                 <th colspan="2">
                     <input type="submit" value="Envoyer"/>

@@ -51,6 +51,9 @@ function getREbyFilter($form)
     {
         $requete .= " AND `sender_id` =  ".$user_data['user_id']." ";
     }
+
+
+
     ///filtre playername
     if ($form["isplayername"])
     {
@@ -68,7 +71,40 @@ function getREbyFilter($form)
     $result = $db->sql_query($requete);
 
     while ($row = $db->sql_fetch_assoc($result)) {
-        $tResult[] = $row;
+        // filtre nombre
+        if (($form["flottemin"] != 0) ||  ($form["flottemax"] != 0))
+        {
+            // il faut ne garder que les fltottes entre les deux
+            $nbFlotte  = 0;
+
+            $nbFlotte = ($row["PT"]=="-1") ? 0 : (int)$row["PT"];
+            $nbFlotte += ($row["GT"]=="-1") ? 0 : (int)$row["GT"];
+            $nbFlotte += ($row["CLE"]=="-1") ? 0 : (int)$row["CLE"];
+            $nbFlotte += ($row["CLO"]=="-1" )? 0 : (int)$row["CLO"];
+            $nbFlotte += ($row["CR"]=="-1") ? 0 : (int)$row["CR"];
+            $nbFlotte += ($row["VC"]=="-1") ? 0 : (int)$row["VC"];
+            $nbFlotte += ($row["REC"]=="-1") ? 0 : (int)$row["REC"];
+            $nbFlotte += ($row["SE"]=="-1" )? 0 : (int)$row["SE"];
+            $nbFlotte += ($row["BMD"]=="-1") ? 0 : (int)$row["BMD"];
+            $nbFlotte += ($row["DST"]=="-1") ? 0 : (int)$row["DST"];
+            $nbFlotte += ($row["EDLM"]=="-1") ? 0 : (int)$row["EDLM"];
+            $nbFlotte += ($row["TRA"]=="-1") ? 0 : (int)$row["TRA"];
+
+            if ($nbFlotte >= $form["flottemin"] && $nbFlotte <= $form["flottemax"] )
+            {
+                $tResult[] = $row;
+            }
+
+
+
+        }
+        else
+        {
+
+            $tResult[] = $row;
+        }
+
+
     }
         return $tResult;
 
